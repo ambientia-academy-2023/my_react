@@ -23,14 +23,20 @@ class MyClass extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h2>MyClass</h2>
-                <input  onChange={this.updateName}/>
-                <p>Hello {this.state.name}</p>
-                <button onClick={this.setName}>Set to NoName</button>
                 <p>
-                <button onClick={this.setAddress}>Aseta Uusi osoite</button>
-                <label>{this.state.address}</label>
+                    <input  onChange={this.updateName}/>
+                </p>
+                <p>
+                    Hello {this.state.name}
+                </p>
+                <p>
+                    <button className='btn btn-primary'  onClick={this.setName}>Set to NoName</button>
+                </p>
+                <p>
+                    <button className='btn btn-primary'  onClick={this.setAddress}>Aseta Uusi osoite</button><br/>
+                    <label>{this.state.address}</label>
                 </p>
             </div>
         );
