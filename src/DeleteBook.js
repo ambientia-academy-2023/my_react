@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import apiURL from './myURL';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 const SelectedBook = (props) => {
@@ -48,9 +48,6 @@ const SelectedBook = (props) => {
             headers: { "Authorization": `Bearer ${token}` } 
         })
             .then(res => {
-                setName('');
-                setAuthor('');
-                setIsbn('');
                 setLoading(false);
                 return navigate("/booklist");
             }).catch(err => {
@@ -61,19 +58,20 @@ const SelectedBook = (props) => {
 
     return (
         <div className="container">
-            <table border="1">
+            <table className='table table-bordered'>
                 <thead>
                     <tr>
-                        <th>id_book</th><th>name</th><th>author</th><th>isbn</th><th>Choose</th>
+                        <th>id_book</th><th>name</th><th>author</th><th>isbn</th><th>Choose</th><th>Cancel</th>
                     </tr>
                 </thead>
                 <tbody>
                         <tr>
                             <td>{id_book}</td>
-                            <td><input type="text" id="name" value={name} onChange={e => setName(e.target.value)} /></td>
-                            <td><input type="text" id="author" value={author} onChange={e => setAuthor(e.target.value)} /></td>
-                            <td><input type="text" id="isbn" value={isbn} onChange={e => setIsbn(e.target.value)} /></td>
-                            <td><button type="submit" onClick={handleSubmit}  disabled={loading}>Delete</button></td>
+                            <td>{name}</td>
+                            <td>{author}</td>
+                            <td>{isbn}</td>
+                            <td><button className='btn btn-danger' type="submit" onClick={handleSubmit}  disabled={loading}>Delete</button></td>
+                            <td><NavLink to="../booklist"><button className='btn btn-primary'>Cancel</button></NavLink></td>
                         </tr>
                     
                 </tbody>
