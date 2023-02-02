@@ -18,6 +18,7 @@ const BookList = () => {
                     headers: { "Authorization": `Bearer ${token}` } 
                 })
                 setData(response);
+                //console.log(data[0].name);
             } catch (error) {
                 console.error(error.message);
                 setInfo("You need to login to see the books!");
@@ -26,11 +27,11 @@ const BookList = () => {
         }
 
         getBooks();
-    }, []);
+    },[]);
 
     return (
         <div className="container">
-            <table border="1">
+            <table className='table table-bordered'>
                 <thead>
                     <tr>
                         <th>id_book</th><th>name</th><th>author</th><th>isbn</th><th>Select</th>
@@ -44,7 +45,7 @@ const BookList = () => {
                             <td>{book.author}</td>
                             <td>{book.isbn}</td>
                             <td><NavLink to={`selectedbook/${book.id_book}`}>
-                                <button className="btn btn-primary">Select({book.id_book})</button>
+                                <button className="btn btn-primary">Select</button>
                                 </NavLink>
                             </td>
                         </tr>

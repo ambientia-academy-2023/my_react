@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Login';
 import BookList from './BookList';
+import SelectedBook from './SelectedBook';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/myhook" element={<MyHook fname="Teppo"/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/booklist" element={<BookList/>} />
+        <Route exact path="/booklist/selectedbook/:id" element={<SelectedBook/>} />
       </Routes>
     </Router>
 
