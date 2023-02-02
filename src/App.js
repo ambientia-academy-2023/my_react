@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Login';
 import BookList from './BookList';
 import SelectedBook from './SelectedBook';
+import SortBook from './SortBook';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <li> <Link to="/myhook">MyHook</Link>  </li>
           <li> <Link to="/login">Login</Link>  </li>
           <li> <Link to="/booklist">Kirjat</Link>  </li>
+          <li> <Link to="/sortbook">Kirjat järjestys</Link>  </li>
         </ul>
 
         <hr />
@@ -28,6 +30,7 @@ function App() {
         <Route exact path="/myhook" element={<MyHook fname="Teppo"/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/booklist" element={<BookList/>} />
+        <Route exact path="/sortbook" element={<SortBook/>} />
         <Route exact path="/booklist/selectedbook/:id" element={<SelectedBook/>} />
       </Routes>
     </Router>
