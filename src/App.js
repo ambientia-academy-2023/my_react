@@ -8,6 +8,7 @@ import Login from './Login';
 import BookList from './BookList';
 import SelectedBook from './SelectedBook';
 import SortBook from './SortBook';
+import DeleteBook from './DeleteBook';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/booklist" element={<BookList/>} />
         <Route exact path="/sortbook" element={<SortBook/>} />
         <Route exact path="/booklist/selectedbook/:id" element={<SelectedBook/>} />
+        <Route exact path="/booklist/deletebook/:id" element={<DeleteBook/>} />
       </Routes>
     </Router>
 

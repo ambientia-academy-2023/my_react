@@ -34,7 +34,7 @@ const BookList = () => {
             <table className='table table-bordered'>
                 <thead>
                     <tr>
-                        <th>id_book</th><th>name</th><th>author</th><th>isbn</th><th>Select</th>
+                        <th>id_book</th><th>name</th><th>author</th><th>isbn</th><th>Select</th><th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +48,9 @@ const BookList = () => {
                                 <button className="btn btn-primary">Select</button>
                                 </NavLink>
                             </td>
+                            <td><NavLink to={`deletebook/${book.id_book}`}>
+                                <button className="btn btn-danger">Select</button>
+                                </NavLink></td>
                         </tr>
                     ))}
                 </tbody>
