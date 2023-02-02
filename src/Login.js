@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import apiURL from './myURL';
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-
+    const navigate=useNavigate();
     const [username, setusername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -22,8 +23,9 @@ function Login() {
                 console.log(res.data);
                 const compareValue = res.data.localeCompare("false");
                 if(compareValue != 0){
-                    console.log("TEST");
+                    console.log("Login OK");
                     localStorage.setItem('token',res.data);
+                    return navigate("/booklist");
                 }
             }).catch(err => {
                 setLoading(false);
